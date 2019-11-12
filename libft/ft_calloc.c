@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 15:47:42 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 05:49:13 by ybayart          ###   ########.fr       */
+/*   Created: 2019/11/05 17:26:17 by ybayart           #+#    #+#             */
+/*   Updated: 2019/11/05 20:04:02 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+void	*ft_calloc(size_t count, size_t size)
+{
+	size_t	total;
+	char	*mem;
+	size_t	i;
 
-# include "ft_printf_tp.h"
-# include "libft.h"
-
-# define __CONVERTER "cspdiuxX%"
-
-int		ft_printf(const char *s, ...);
-void	parser(const char *s, va_list ap);
-void	writer(char c);
-size_t	printed(int inc);
-void	formater(t_printf data, va_list ap);
-
-#endif
+	total = count * size;
+	mem = malloc(total);
+	if (mem == NULL)
+		return (NULL);
+	i = 0;
+	while (i < total)
+	{
+		mem[i] = 0;
+		i++;
+	}
+	return (mem);
+}

@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 15:47:42 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 05:49:13 by ybayart          ###   ########.fr       */
+/*   Created: 2019/08/06 03:05:58 by ybayart           #+#    #+#             */
+/*   Updated: 2019/11/06 22:29:55 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t i;
+	size_t res;
 
-# include "ft_printf_tp.h"
-# include "libft.h"
-
-# define __CONVERTER "cspdiuxX%"
-
-int		ft_printf(const char *s, ...);
-void	parser(const char *s, va_list ap);
-void	writer(char c);
-size_t	printed(int inc);
-void	formater(t_printf data, va_list ap);
-
-#endif
+	if (src == NULL)
+		return ((size_t)NULL);
+	i = 0;
+	res = 0;
+	while (src[res])
+		res++;
+	if (dstsize < 1)
+		return (res);
+	while (src[i] && i < dstsize - 1)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (res);
+}

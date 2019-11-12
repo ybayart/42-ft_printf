@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 15:47:42 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 05:49:13 by ybayart          ###   ########.fr       */
+/*   Created: 2019/08/04 01:20:09 by ybayart           #+#    #+#             */
+/*   Updated: 2019/11/05 19:35:41 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	unsigned char	*ptr;
+	unsigned char	*ptr2;
+	size_t			i;
 
-# include "ft_printf_tp.h"
-# include "libft.h"
-
-# define __CONVERTER "cspdiuxX%"
-
-int		ft_printf(const char *s, ...);
-void	parser(const char *s, va_list ap);
-void	writer(char c);
-size_t	printed(int inc);
-void	formater(t_printf data, va_list ap);
-
-#endif
+	ptr = (unsigned char*)s1;
+	ptr2 = (unsigned char*)s2;
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (*(ptr + i) == *(ptr2 + i) && (i < n - 1) && *(ptr + i))
+		i++;
+	return (*(ptr + i) - *(ptr2 + i));
+}

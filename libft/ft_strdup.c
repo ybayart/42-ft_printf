@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 15:47:42 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 05:49:13 by ybayart          ###   ########.fr       */
+/*   Created: 2019/08/06 15:56:05 by ybayart           #+#    #+#             */
+/*   Updated: 2019/11/05 20:11:40 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+char	*ft_strdup(const char *s1)
+{
+	int		i;
+	char	*dst;
 
-# include "ft_printf_tp.h"
-# include "libft.h"
-
-# define __CONVERTER "cspdiuxX%"
-
-int		ft_printf(const char *s, ...);
-void	parser(const char *s, va_list ap);
-void	writer(char c);
-size_t	printed(int inc);
-void	formater(t_printf data, va_list ap);
-
-#endif
+	i = 1;
+	while (s1[i - 1])
+		i++;
+	dst = malloc(sizeof(*s1) * i);
+	i = 0;
+	if (dst == NULL)
+		return (NULL);
+	while (s1[i])
+	{
+		dst[i] = s1[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}

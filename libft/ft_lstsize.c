@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 15:47:42 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 05:49:13 by ybayart          ###   ########.fr       */
+/*   Created: 2019/11/06 20:19:24 by ybayart           #+#    #+#             */
+/*   Updated: 2019/11/06 20:27:16 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+int		ft_lstsize(t_list *lst)
+{
+	int		i;
 
-# include "ft_printf_tp.h"
-# include "libft.h"
-
-# define __CONVERTER "cspdiuxX%"
-
-int		ft_printf(const char *s, ...);
-void	parser(const char *s, va_list ap);
-void	writer(char c);
-size_t	printed(int inc);
-void	formater(t_printf data, va_list ap);
-
-#endif
+	if (!lst)
+		return (0);
+	i = 1;
+	while (lst->next)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}

@@ -6,14 +6,18 @@
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 15:36:18 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/11 20:11:34 by ybayart          ###   ########.fr       */
+/*   Updated: 2019/11/12 05:30:41 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
 int		main(void)
 {
-	printf("|%--40.*d|\n", 16, 123456789);
-	ft_printf("|%--40.*d|\n", 16, 123456789);
+	int		vrai;
+	int		faux;
+
+	vrai = printf("|%24d toto|\n", 123456);
+	faux = ft_printf("|%24d toto|\n", 123456);
+	printf("vrai: %d\nfaux: %d\n", vrai, faux);
 }

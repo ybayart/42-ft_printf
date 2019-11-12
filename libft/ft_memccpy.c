@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 15:47:42 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 05:49:13 by ybayart          ###   ########.fr       */
+/*   Created: 2019/11/04 16:12:50 by ybayart           #+#    #+#             */
+/*   Updated: 2019/11/05 19:07:47 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+{
+	unsigned char	*ptr;
+	unsigned char	*ptr2;
+	unsigned char	cs;
+	int				i;
 
-# include "ft_printf_tp.h"
-# include "libft.h"
-
-# define __CONVERTER "cspdiuxX%"
-
-int		ft_printf(const char *s, ...);
-void	parser(const char *s, va_list ap);
-void	writer(char c);
-size_t	printed(int inc);
-void	formater(t_printf data, va_list ap);
-
-#endif
+	ptr = (unsigned char*)dest;
+	ptr2 = (unsigned char*)src;
+	cs = (unsigned char)c;
+	i = 0;
+	while (n-- > 0)
+	{
+		*(ptr + i) = *(ptr2 + i);
+		if (*(ptr2 + i) == cs)
+			return (dest + i + 1);
+		i++;
+	}
+	return (0);
+}

@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 15:47:42 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 05:49:13 by ybayart          ###   ########.fr       */
+/*   Created: 2019/11/06 17:41:07 by ybayart           #+#    #+#             */
+/*   Updated: 2019/11/06 22:26:21 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+{
+	size_t	i;
+	size_t	len;
+	char	*dst;
 
-# include "ft_printf_tp.h"
-# include "libft.h"
-
-# define __CONVERTER "cspdiuxX%"
-
-int		ft_printf(const char *s, ...);
-void	parser(const char *s, va_list ap);
-void	writer(char c);
-size_t	printed(int inc);
-void	formater(t_printf data, va_list ap);
-
-#endif
+	if (s == NULL)
+		return (NULL);
+	len = ft_strlen(s);
+	if ((dst = ft_calloc(sizeof(char), (len + 1))) == NULL)
+		return (NULL);
+	i = 0;
+	while (*(s + i))
+	{
+		*(dst + i) = (*f)(i, *(s + i));
+		i++;
+	}
+	*(dst + i) = '\0';
+	return (dst);
+}

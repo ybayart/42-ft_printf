@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   writer.c                                           :+:      :+:    :+:   */
+/*   formater.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 17:53:58 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 05:48:23 by ybayart          ###   ########.fr       */
+/*   Created: 2019/11/12 05:03:29 by ybayart           #+#    #+#             */
+/*   Updated: 2019/11/12 05:59:03 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	printed(int inc)
+void	d(t_printf data, va_list ap)
 {
-	static size_t	n = 0;
+	int		n;
+	size_t	len;
 
-	n += inc;
-	return (n);
+	n = va_arg(ap, int);
+	len = ft_nbrlen(n);
+	if (data.neg == 1)
+		while (data.len-- - len > 0)
+			writer(' ');
+	ft_putnbr_fd(n, 1);
+	printed(len);
+
 }
 
-void	writer(char c)
+void	formater(t_printf data, va_list ap)
 {
-	write(1, &c, 1);
-	printed(1);
+	if (data.type == 'd')
+		d(data, ap);
+//	printf("\n--------------------\n-> neg: %d\n-> len: %d\n-> pre: %d\n-> typ: %c\n--------------------\n", data.neg, data.len, data.pre, data.type);
 }

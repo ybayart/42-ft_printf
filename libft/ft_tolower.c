@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_td.h                                     :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 19:13:14 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/11 19:49:17 by ybayart          ###   ########.fr       */
+/*   Created: 2019/11/05 15:43:54 by ybayart           #+#    #+#             */
+/*   Updated: 2019/11/05 15:44:15 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_TD_H
-# define FT_PRINTF_TD_H
+#include "libft.h"
 
-typedef struct	s_printf
+int	ft_tolower(int c)
 {
-	
-}				t_printf;
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
+}
