@@ -6,7 +6,7 @@
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 17:53:58 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 05:48:23 by ybayart          ###   ########.fr       */
+/*   Updated: 2019/11/12 06:30:20 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@ size_t	printed(int inc)
 
 	n += inc;
 	return (n);
+}
+
+void	write_char(char c, int n)
+{
+	while (n-- > 0)
+		writer(c);
 }
 
 void	writer(char c)

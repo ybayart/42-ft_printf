@@ -6,7 +6,7 @@
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:13:14 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 05:56:17 by ybayart          ###   ########.fr       */
+/*   Updated: 2019/11/12 06:25:19 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int			opts(const char *s, va_list ap)
 		data.len = 0;
 	else if (ft_isdigit(*(s + i)))
 		i += getdigit(s + i, &data.len, 0);
-	else
+	else if (!is_converter(*(s + i)))
 		return (0);
 	while (*(s + i) == '.' && i++ != 0)
 		if (*(s + i) == '*' && i++ != 0)
