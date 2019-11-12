@@ -6,7 +6,7 @@
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:13:14 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 06:25:19 by ybayart          ###   ########.fr       */
+/*   Updated: 2019/11/12 23:19:15 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			is_converter(char c)
 	return (0);
 }
 
-int			getdigit(const char *s, int *n, int mode)
+int			getdigit(const char *s, int *n)
 {
 	int		i;
 	int		ntmp;
@@ -35,8 +35,10 @@ int			getdigit(const char *s, int *n, int mode)
 	ntmp = 0;
 	while (ft_isdigit(*(s + i)))
 		ntmp = (ntmp * 10) + (*(s + i++) - '0');
-	if (!mode || ntmp != 0)
+	if (ntmp != 0)
 		*n = ntmp;
+	else if (*n == -1)
+		*n = -2;
 	return (i);
 }
 
@@ -64,14 +66,14 @@ int			opts(const char *s, va_list ap)
 	if (*(s + i) == '*' && i++ != 0)
 		data.len = 0;
 	else if (ft_isdigit(*(s + i)))
-		i += getdigit(s + i, &data.len, 0);
-	else if (!is_converter(*(s + i)))
+		i += getdigit(s + i, &data.len);
+	else if (*(s + i) != '.' && !is_converter(*(s + i)))
 		return (0);
 	while (*(s + i) == '.' && i++ != 0)
 		if (*(s + i) == '*' && i++ != 0)
 			data.pre = 0;
 		else
-			i += getdigit(s + i, &data.pre, 1);
+			i += getdigit(s + i, &data.pre);
 	if (is_converter(*(s + i)) && (data.type = *(s + i)) != 0)
 		formater(data, ap);
 	else

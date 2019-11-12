@@ -6,7 +6,7 @@
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 15:36:18 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 07:06:21 by ybayart          ###   ########.fr       */
+/*   Updated: 2019/11/12 23:37:15 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int		main(void)
 	int		faux;
 	char	*s;
 
-	s = "|%0*.20d to%10dto|\n";
-	   vrai = printf(s, 50, 80, 123456);
-	faux = ft_printf(s, 50, 80, 123456);
+	s = "|%010%|\n";
+	   vrai = printf(s, 8);
+	faux = ft_printf(s, 8);
 	printf("vrai: %d\nfaux: %d\n", vrai, faux);
 }

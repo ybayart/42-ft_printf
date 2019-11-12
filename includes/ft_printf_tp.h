@@ -6,7 +6,7 @@
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 05:07:08 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/12 06:21:53 by ybayart          ###   ########.fr       */
+/*   Updated: 2019/11/12 23:14:49 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,13 @@ typedef struct	s_printf
 	int		pre;
 	char	type;
 }				t_printf;
+
+typedef struct	s_decimal
+{
+	int		n;
+	int		neg;
+	int		decalage;
+	size_t	len;
+}				t_decimal;
 
 #endif
