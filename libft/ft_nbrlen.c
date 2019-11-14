@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t	ft_nbrlen(long n)
+size_t	ft_nbrlen(long long n)
 {
 	size_t	i;
 
@@ -25,6 +25,24 @@ size_t	ft_nbrlen(long n)
 	while (n > 9)
 	{
 		n /= 10;
+		i++;
+	}
+	return (i);
+}
+
+size_t	ft_nbrlen_base(long long n, int base)
+{
+	size_t	i;
+
+	i = 1;
+	if (n < 0)
+	{
+		n *= -1;
+		i++;
+	}
+	while (n >= base)
+	{
+		n /= base;
 		i++;
 	}
 	return (i);

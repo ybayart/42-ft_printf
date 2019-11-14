@@ -6,7 +6,7 @@ DIROBJ		= ./objs/
 
 DIRLIB		= ./libft/
 
-SRC			= ft_printf parser writer formater
+SRC			= ft_printf parser writer formater formater_d formater_u formater_x formater_c formater_s formater_p formater_pe
 
 SRCS		= $(addprefix ${DIRSRC}, $(addsuffix .c, ${SRC}))
 

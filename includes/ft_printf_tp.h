@@ -15,18 +15,55 @@
 
 typedef struct	s_printf
 {
-	int		neg;
-	int		len;
-	int		pre;
-	char	type;
+	int					neg;
+	int					len;
+	int					pre;
+	char				type;
 }				t_printf;
 
 typedef struct	s_decimal
 {
-	int		n;
-	int		neg;
-	int		decalage;
-	size_t	len;
+	int					n;
+	int					neg;
+	int					decalage;
+	size_t				len;
 }				t_decimal;
+
+typedef struct	s_udecimal
+{
+	unsigned int		n;
+	int					neg;
+	size_t				len;
+	int					init_pre;
+}				t_udecimal;
+
+typedef struct	s_xdecimal
+{
+	unsigned int		n;
+	int					neg;
+	size_t				len;
+	char				*base;
+	int					init_pre;
+}				t_xdecimal;
+
+typedef struct	s_char
+{
+	unsigned char		c;
+	int					neg;
+}				t_char;
+
+typedef struct	s_string
+{
+	const char			*s;
+	int					neg;
+	size_t				len;
+}				t_string;
+
+typedef struct	s_pointer
+{
+	unsigned long long	addr;
+	int					neg;
+	size_t				len;
+}				t_pointer;
 
 #endif

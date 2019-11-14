@@ -31,3 +31,9 @@ void	writer(char c)
 	write(1, &c, 1);
 	printed(1);
 }
+
+void	uwriter(unsigned char c)
+{
+	write(1, &c, 1);
+	printed(1);
+}

@@ -19,3 +19,11 @@ void	ft_putstr_fd(char *s, int fd)
 	while (*s)
 		write(fd, s++, 1);
 }
+
+void	ft_putnstr_fd(char *s, int fd, int n)
+{
+	if (s == NULL)
+		return ((void)NULL);
+	while (*s && n-- > 0)
+		write(fd, s++, 1);
+}
