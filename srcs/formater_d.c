@@ -46,7 +46,7 @@ void	formater_d_print_neg(t_printf data, t_decimal *decimal)
 		(*decimal).decalage -= 1;
 	}
 	write_char('0', data.pre - (*decimal).len);
-	ft_putnbr_fd((*decimal).n, 1);
+	ft_putlnbr_fd((*decimal).n, 1);
 	write_char(' ', data.len - data.pre);
 }
 
@@ -74,7 +74,7 @@ void	formater_d_print_pos(t_printf data, t_decimal *decimal)
 			(*decimal).decalage -= 1;
 	}
 	write_char('0', data.pre - (*decimal).len);
-	ft_putnbr_fd((*decimal).n, 1);
+	ft_putlnbr_fd((*decimal).n, 1);
 }
 
 void	formater_d(t_printf data, va_list ap)

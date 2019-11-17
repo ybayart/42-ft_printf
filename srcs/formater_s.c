@@ -21,7 +21,11 @@ void	formater_s_init(t_printf *data, t_string *string, va_list ap)
 			(*data).len *= -1;
 		}
 	if ((*data).pre == 0)
+	{
 		(*data).pre = va_arg(ap, int);
+		if ((*data).pre < 0)
+			(*data).pre = -1;
+	}
 	(*string).s = va_arg(ap, const char *);
 	if ((*string).s == NULL)
 		(*string).s = "(null)";

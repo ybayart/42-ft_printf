@@ -31,6 +31,25 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
+void	ft_putlnbr_fd(long n, int fd)
+{
+	long long	ln;
+
+	ln = n;
+	if (ln < 0)
+	{
+		ft_putchar_fd('-', fd);
+		ln *= -1;
+	}
+	if (ln <= 9)
+		ft_putchar_fd(ln + '0', fd);
+	else
+	{
+		ft_putlnbr_fd(ln / 10, fd);
+		ft_putlnbr_fd(ln % 10, fd);
+	}
+}
+
 void	ft_putnbr_base_fd(int n, int fd, char *base)
 {
 	long	ln;

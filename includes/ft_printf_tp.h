@@ -23,7 +23,7 @@ typedef struct	s_printf
 
 typedef struct	s_decimal
 {
-	int					n;
+	long				n;
 	int					neg;
 	int					decalage;
 	size_t				len;

@@ -67,6 +67,7 @@ void			ft_putstr_fd(char *s, int fd);
 void			ft_putnstr_fd(char *s, int fd, int n);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
+void			ft_putlnbr_fd(long n, int fd);
 void			ft_putunbr_fd(unsigned long long n, int fd);
 void			ft_putnbr_base_fd(int n, int fd, char *base);
 void			ft_putunbr_base_fd(unsigned long long n, int fd, char *base);
