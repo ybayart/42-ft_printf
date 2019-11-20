@@ -6,7 +6,7 @@
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 21:32:30 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/13 21:39:21 by ybayart          ###   ########.fr       */
+/*   Updated: 2019/11/20 22:38:28 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int		formater_x_init(t_printf *data, t_xdecimal *number, va_list ap)
 			(*data).len *= -1;
 		}
 	if ((*data).pre == 0)
-		(*data).pre = va_arg(ap, int);
+		if (((*data).pre = va_arg(ap, int)) < 0)
+			(*data).pre = -1;
 	(*number).n = va_arg(ap, unsigned int);
 	if ((*data).pre == -2 && (unsigned int)(*number).n == 0)
 	{
