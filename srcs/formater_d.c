@@ -6,7 +6,7 @@
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 21:32:30 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/20 21:40:59 by ybayart          ###   ########.fr       */
+/*   Updated: 2019/11/21 23:03:30 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		formater_d_init(t_printf *data, t_decimal *decimal, va_list ap)
 		if (((*data).pre = va_arg(ap, int)) < 0)
 			(*data).pre = -1;
 	(*decimal).n = va_arg(ap, int);
-	if ((*data).pre == -2 && (*decimal).n == 0)
+	if (((*data).pre == -2 || (*data).pre == 0) && (*decimal).n == 0)
 	{
 		if ((*data).len > 0)
 			write_char(' ', (*data).len);
@@ -75,7 +75,7 @@ void	formater_d_print_pos(t_printf data, t_decimal *decimal)
 	}
 	else
 		write_char(' ', data.len - data.pre + (*decimal).decalage);
-	if ((*decimal).isneg == 1)
+	if ((*decimal).isneg == 1 && ((*decimal).isneg -= 1) == 0)
 		writer('-');
 	write_char('0', data.pre - (*decimal).len - (*decimal).decalage);
 	ft_putlnbr_fd((*decimal).n, 1);

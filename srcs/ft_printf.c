@@ -6,7 +6,7 @@
 /*   By: ybayart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 15:46:42 by ybayart           #+#    #+#             */
-/*   Updated: 2019/11/20 19:09:47 by ybayart          ###   ########.fr       */
+/*   Updated: 2019/11/21 22:54:24 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ int		ft_printf(const char *s, ...)
 	parser(s, ap);
 	va_end(ap);
 	n = printed(0);
-	printed(-n);
 	return (n);
 }
